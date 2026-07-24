@@ -1,0 +1,6 @@
+# Core dependencies
+numpy>=1.24
+matplotlib>=3.7
+
+# Optional development dependencies
+# pip install -e ".[dev]"

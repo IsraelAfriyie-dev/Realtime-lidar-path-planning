@@ -1,4 +1,4 @@
-"""Real-time LiDAR-based path planning demo.
+"""Real-time LiDAR-based path planning simulation.
 
 A robot with a simulated 360-degree LiDAR navigates toward a goal through a
 field of obstacles. Every animation frame it: takes a LiDAR scan, feeds the
@@ -8,14 +8,17 @@ the robot only ever reacts to what it currently "sees", which is what makes
 this real-time rather than an offline planner.
 
 Run:
-    python main.py
+    python -m examples.simulation
+
+Or from the repository root:
+    PYTHONPATH=. python examples/simulation.py
 """
 import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.animation import FuncAnimation
 
-from lidar import Lidar
-from dwa import DWAConfig, plan
+from src.lidar import Lidar
+from src.planning import DWAConfig, plan
 
 # ---------------------------------------------------------------------------
 # World setup
