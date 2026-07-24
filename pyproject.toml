@@ -1,0 +1,93 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "realtime-lidar-path-planning"
+version = "1.0.0"
+description = "Real-time LiDAR-based path planning using Dynamic Window Approach"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [
+    {name = "Israel Afriyie", email = "israelafriyie@gmail.com"}
+]
+keywords = [
+    "lidar",
+    "path-planning",
+    "robotics",
+    "dwa",
+    "collision-avoidance",
+    "autonomous-navigation"
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Scientific/Engineering :: Robotics",
+]
+requires-python = ">=3.8"
+dependencies = [
+    "numpy>=1.24",
+    "matplotlib>=3.7",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "pytest-cov>=4.0",
+    "black>=23.0",
+    "isort>=5.12",
+    "flake8>=6.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/IsraelAfriyie-dev/Realtime-lidar-path-planning"
+Documentation = "https://github.com/IsraelAfriyie-dev/Realtime-lidar-path-planning#readme"
+Repository = "https://github.com/IsraelAfriyie-dev/Realtime-lidar-path-planning"
+Issues = "https://github.com/IsraelAfriyie-dev/Realtime-lidar-path-planning/issues"
+
+[project.scripts]
+lidar-planning = "examples.simulation:main"
+
+[tool.setuptools]
+package-dir = {"" = "."}
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["src*", "examples*"]
+
+[tool.black]
+line-length = 88
+target-version = ['py38', 'py39', 'py310', 'py311', 'py312']
+include = '\.pyi?$'
+
+[tool.isort]
+profile = "black"
+line_length = 88
+skip = [".git", ".venv", "build", "dist"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_functions = ["test_*"]
+addopts = "-v --tb=short"
+
+[tool.coverage.run]
+source = ["src"]
+omit = ["tests/*", "examples/*"]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "raise NotImplementedError",
+    "if __name__ == .__main__.:",
+]

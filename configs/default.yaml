@@ -1,0 +1,63 @@
+# Default configuration for LiDAR path planning simulation
+# All distances are in meters, angles in radians
+
+# Robot configuration
+robot:
+  # Robot radius for collision checking (meters)
+  radius: 0.3
+
+# LiDAR sensor configuration
+lidar:
+  # Maximum sensing range (meters)
+  max_range: 5.0
+  # Number of evenly-spaced beams around 360 degrees
+  num_beams: 90
+  # Standard deviation of Gaussian noise on range measurements (meters)
+  # Set to 0 for deterministic behavior
+  noise_std: 0.01
+
+# DWA planner configuration
+planner:
+  # Maximum forward velocity (m/s)
+  max_speed: 1.0
+  # Minimum velocity (typically 0 to prevent reversing)
+  min_speed: 0.0
+  # Maximum angular velocity (rad/s)
+  max_yaw_rate: 1.5708  # 90 degrees/s
+  # Maximum linear acceleration (m/s^2)
+  max_accel: 1.0
+  # Maximum angular acceleration (rad/s^2)
+  max_delta_yaw_rate: 1.5708  # 90 degrees/s^2
+  # Linear velocity sampling resolution (m/s)
+  v_resolution: 0.05
+  # Angular velocity sampling resolution (rad/s)
+  yaw_rate_resolution: 0.0873  # 5 degrees/s
+  # Control step time interval (seconds)
+  dt: 0.1
+  # Trajectory prediction horizon (seconds)
+  predict_time: 2.0
+  # Cost function weights
+  to_goal_cost_gain: 1.0
+  speed_cost_gain: 1.0
+  obstacle_cost_gain: 1.0
+
+# World configuration
+world:
+  # Initial robot pose [x, y, theta]
+  start_pose: [0.0, 0.0, 0.7854]  # 45 degrees
+  # Goal position [x, y]
+  goal: [10.0, 10.0]
+  # Goal acceptance tolerance (meters)
+  goal_tolerance: 0.4
+  # Obstacle radius (meters)
+  obstacle_radius: 0.5
+  # List of obstacle positions [[x, y], ...]
+  obstacles:
+    - [2.0, 2.5]
+    - [4.0, 4.5]
+    - [6.0, 3.0]
+    - [5.0, 6.5]
+    - [8.0, 5.0]
+    - [3.0, 7.5]
+    - [7.5, 8.0]
+    - [1.5, 5.5]
