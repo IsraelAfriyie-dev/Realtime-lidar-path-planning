@@ -5,6 +5,14 @@ A self-contained Python project demonstrating real-time mobile robot navigation 
 **Author:** Israel Afriyie  
 **License:** MIT
 
+## Demonstration
+
+![Real-time LiDAR Path Planning](examples/path_planning_demo.gif)
+
+The animation demonstrates the vehicle navigating using real-time LiDAR path planning. The robot uses its onboard LiDAR sensor to detect nearby obstacles and dynamically plans a collision-free path toward the goal using the Dynamic Window Approach (DWA) algorithm.
+
+For the full-resolution video, see [examples/path_planning.mp4](examples/path_planning.mp4).
+
 ## Overview
 
 This project implements a robot that navigates autonomously toward a target position through a field of obstacles using only its onboard LiDAR sensor. Unlike global path planners that compute a complete route upfront, DWA re-plans at every step based on the latest sensor readings, enabling reactive collision avoidance in dynamic or partially-known environments.
